@@ -3,6 +3,9 @@ import { FormsModule }   from '@angular/forms';
 import { HttpModule }    from '@angular/http';
 import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { SortPipe } from './components/shared/sort-by.pipe';
+import { SearchService } from './components/search/search.service';
+
 import { 
   MdAutocompleteModule,
   MdButtonModule,
@@ -42,7 +45,8 @@ import { SearchComponent } from './components/search/search.component';
 @NgModule({
   declarations: [
     AppComponent,
-    SearchComponent
+    SearchComponent,
+    SortPipe
   ],
   imports: [
     FormsModule,
@@ -81,7 +85,7 @@ import { SearchComponent } from './components/search/search.component';
     MdToolbarModule,
     MdTooltipModule,
   ],
-  providers: [],
+  providers: [SearchService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -15,20 +15,20 @@
 
   <md-grid-list cols="3" rowHeight="40em" gutterSize="10px">
     <md-grid-tile *ngFor="let artist of artistsArray let i = index">
-      <md-card>
-        <img md-card-image src="{{ artist.image[3]._}}">
+       <md-card>
+        <img md-card-image src="{{ artist.image[3]._ }}"> 
         <md-card-header>
           <md-card-title>{{ artist.name }}</md-card-title>
         </md-card-header>
+        <md-card-content>
+          Listeners: {{artist.listeners}}
+        </md-card-content>
 
         <md-card-actions>
           <button md-button>LIKE</button>
           <button md-button>SHARE</button>
         </md-card-actions>
-      </md-card>
+      </md-card> 
     </md-grid-tile>
   </md-grid-list>
 </div>
-
-  
-</md-card>-->
