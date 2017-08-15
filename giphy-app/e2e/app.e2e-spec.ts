@@ -1,10 +1,10 @@
-import { MusicAppPage } from './app.po';
+import { GiphyAppPage } from './app.po';
 
-describe('music-app App', () => {
-  let page: MusicAppPage;
+describe('giphy-app App', () => {
+  let page: GiphyAppPage;
 
   beforeEach(() => {
-    page = new MusicAppPage();
+    page = new GiphyAppPage();
   });
 
   it('should display welcome message', () => {

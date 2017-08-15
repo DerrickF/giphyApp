@@ -1,6 +1,6 @@
 import { browser, by, element } from 'protractor';
 
-export class MusicAppPage {
+export class GiphyAppPage {
   navigateTo() {
     return browser.get('/');
   }
