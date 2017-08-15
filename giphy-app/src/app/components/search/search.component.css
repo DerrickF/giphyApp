@@ -1,0 +1,4 @@
+/* When the input is not focused */
+md-input-container label {
+  color: white;
+}
