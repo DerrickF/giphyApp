@@ -4,6 +4,9 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './modules/material.module';
 import { SearchComponent } from './components/search/search.component';
+import { GiphyService } from './shared/giphy.service';
+import { HttpModule } from '@angular/http';
+
 
 @NgModule({
   declarations: [
@@ -12,10 +15,11 @@ import { SearchComponent } from './components/search/search.component';
   ],
   imports: [
     BrowserModule,
+    HttpModule,
     BrowserAnimationsModule,
     MaterialModule,
   ],
-  providers: [],
+  providers: [GiphyService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

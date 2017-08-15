@@ -2,9 +2,9 @@
   <md-input-container floatPlaceholder="never">
     <i class="material-icons md-18" mdPrefix>search</i>
     <span mdPrefix>&nbsp;</span>
-    <input style="color:white" color="warn" type="text" mdInput placeholder="Search">
+    <input (keyup)="onKey($event)" style="color:white" color="warn" type="text" mdInput placeholder="Search">
   </md-input-container>
 </md-toolbar>
 
 
-<h1>{{search}}</h1>
+<pre>{{data}}<pre>
