@@ -6,6 +6,7 @@ import { MaterialModule } from './modules/material.module';
 import { SearchComponent } from './components/search/search.component';
 import { GiphyService } from './shared/giphy.service';
 import { HttpModule } from '@angular/http';
+import { CommonModule } from '@angular/common';
 
 
 @NgModule({
@@ -15,6 +16,7 @@ import { HttpModule } from '@angular/http';
   ],
   imports: [
     BrowserModule,
+    CommonModule,
     HttpModule,
     BrowserAnimationsModule,
     MaterialModule,

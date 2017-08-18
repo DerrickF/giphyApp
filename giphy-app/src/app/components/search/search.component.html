@@ -2,9 +2,18 @@
   <md-input-container floatPlaceholder="never">
     <i class="material-icons md-18" mdPrefix>search</i>
     <span mdPrefix>&nbsp;</span>
-    <input (keyup)="onKey($event)" style="color:white" color="warn" type="text" mdInput placeholder="Search">
+    <input #search (keyup.enter)="onEnter(search.value)" style="color:white" color="warn" type="text" mdInput placeholder="Search">
   </md-input-container>
 </md-toolbar>
 
+<md-card>
+  <md-card-title>Title</md-card-title>
+  <md-card-subtitle>another title here</md-card-subtitle>
+  <div *ngIf="data.length">
+    <img md-card-image src="{{data[0].images[0].original_still.url}}" />
+  </div>
+  <md-card-content>Content Goes Here</md-card-content>
+</md-card>
 
-<pre>{{data}}<pre>
+<pre>{{search.value}}</pre>
+<pre>{{data | json}}<pre>
