@@ -14,20 +14,16 @@ export class SearchComponent implements OnInit {
   constructor(private giphyService: GiphyService) { }
 
   ngOnInit() {
-    
-  }
 
-  private searchGiphy(searchTerm){
-    this.giphyService.search(searchTerm).subscribe(data => this.data = data);
   }
 
   onKey(event: any) { 
     let search = event.target.value;
     if(search.length >= 3 ){
-      this.search = event.target.value;
-      this.giphyService.search(search).subscribe(result => this.data = result);
+      setTimeout(() => {
+              this.giphyService.search(search).subscribe(result => this.data = result);
+          }, 1000);
     } 
-
   }
 
 }
