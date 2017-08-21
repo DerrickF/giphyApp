@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, Validators } from "@angular/forms";
 import { GiphyService } from '../../shared/giphy.service';
+import { Giphy } from '../../shared/giphy';
 
 @Component({
   selector: 'app-search',
@@ -9,17 +10,17 @@ import { GiphyService } from '../../shared/giphy.service';
 })
 export class SearchComponent implements OnInit {
   search: string;
-  data: any = {};
+  giphy: Giphy;
 
   constructor(private giphyService: GiphyService) { }
 
   ngOnInit() {
-    this.search = '';
+    this.searchGiphy('example');
   }
 
-  onEnter(value: string) {
-    this.search = value;
-    this.giphyService.search(this.search).subscribe(result => this.data = result);
+  searchGiphy(value: string) {
+    this.giphyService.search(this.search).subscribe(result => this.giphy = result.data[0]);
+    console.log(this.giphy);
   }
 
 }
