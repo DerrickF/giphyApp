@@ -1,17 +1,42 @@
-<md-toolbar color="primary">
-  <md-input-container floatPlaceholder="never">
-    <i class="material-icons md-18" mdPrefix>search</i>
-    <span mdPrefix>&nbsp;</span>
-    <input #search (keyup.enter)="searchGiphy(search.value)" style="color:white" color="warn" type="text" mdInput placeholder="Search">
-  </md-input-container>
-</md-toolbar>
+<div class="container-fluid">
+  <md-toolbar>
+    <md-input-container style="width: 100%" floatPlaceholder="never">
+      <input #search (keyup.enter)="searchGiphy(search.value)" color="warn" type="text" mdInput placeholder="Search">
+      <i class="material-icons md-18" mdSuffix>mode_edit</i>
+    </md-input-container>
+  </md-toolbar>
 
-<md-card>
-  <md-card-title>{{giphy.id}}</md-card-title>
-  <md-card-subtitle>another title here</md-card-subtitle>
+  <div style="width:100%">
+    <md-progress-bar *ngIf="loading" mode="query"></md-progress-bar>
+  </div>
 
-  <md-card-content>Content Goes Here</md-card-content>
-</md-card>
+  <div class="row">
+    <div class="col-6 col-md-4" *ngFor="let giphy of giphys">
+      <md-card>
+        <md-card-header>
+          <md-card-title> </md-card-title>
+        </md-card-header>
+        <div class="text-center">
+          <img md-card-image class="rounded img-fluid" src="{{giphy.images.original_still.url}}">
+        </div>
+        <md-card-content>
+          <p>
+            <span><b>Created On: </b> {{giphy.import_datetime | date:'shortDate'}}</span><br>
+            <span><b>Source: </b> {{giphy.source_tld || "unknown"}}</span><br>
+            <span><b>Raiting: </b> {{giphy.rating | uppercase}}</span>
+          </p>
+        </md-card-content>
+        <md-card-footer>
+          <button md-button>Play</button>
+          <button md-button>Copy</button>
+        </md-card-footer>
+      </md-card>
+    </div>
+  </div>
 
-<pre>{{search.value}}</pre>
- <pre>{{giphy | json}}<pre> 
+
+
+</div>
+
+
+<!-- <pre>{{giphys | json}}<pre> -->

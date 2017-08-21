@@ -3,12 +3,12 @@ import {
   MdCheckboxModule,
   MdInputModule,
   MdToolbarModule,
-  MdCardModule
+  MdCardModule,
+  MdProgressBarModule,
 
 } from '@angular/material';
 
 import { NgModule } from '@angular/core';
-
 
 @NgModule({
   imports: [
@@ -16,14 +16,16 @@ import { NgModule } from '@angular/core';
     MdCheckboxModule,
     MdInputModule,
     MdToolbarModule,
-    MdCardModule
+    MdCardModule,
+    MdProgressBarModule
   ],
   exports: [
     MdButtonModule,
     MdCheckboxModule,
     MdInputModule,
     MdToolbarModule,
-    MdCardModule
+    MdCardModule,
+    MdProgressBarModule
   ],
 })
 export class MaterialModule { }

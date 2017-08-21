@@ -2,3 +2,27 @@
 md-input-container label {
   color: white;
 }
+
+md-card{
+   overflow: hidden;
+   margin-bottom: 5px;
+ }
+
+ md-card image{
+   margin-top: 10px;
+ }
+
+md-toolbar{
+   margin-top: 20px;
+   margin-bottom: 20px;
+ }
+
+ .row{
+    overflow: hidden; 
+}
+
+[class*="col-"]{
+    margin-bottom: -99999px;
+    padding-bottom: 99999px;
+} 
+
