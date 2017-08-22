@@ -20,11 +20,13 @@ export class SearchComponent implements OnInit {
     console.log('loading...');
     this.loading = true;
     setTimeout(() => {
-
       this.giphyService.search(value).subscribe(result => this.giphys = result.data);
       this.loading = false;
     }, 1000);
+  }
 
+  play(data:any){
+    console.log('event',data);
   }
 
 
