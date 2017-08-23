@@ -12,13 +12,13 @@
 
   <div class="row">
     <div class="col-6 col-md-4" *ngFor="let giphy of giphys; let i = index">
-      <md-card [@loading]>
+      <md-card>
         <md-card-header>
           <md-card-title> </md-card-title>
         </md-card-header>
-        <div class="text-center">
-          <img *ngIf="!giphy.active;else playGif" md-card-image style="height:200px; width: auto;" class="rounded img-fluid" src="{{giphy.stillImageUrl}}">
-          <ng-template #playGif><img md-card-image class="rounded img-fluid" style="height:200px; width: auto;" src="{{giphy.gifUrl}}"></ng-template>
+        <div style="padding-bottom: 15px">
+          <img [hidden]="giphy.active" src="{{giphy.stillImageUrl}}">
+          <img [hidden]="!giphy.active" src="{{giphy.gifUrl}}">
         </div>
         <md-card-content>
           <p>
@@ -27,10 +27,10 @@
             <span><b>Raiting: </b> {{giphy.rating | uppercase}}</span>
           </p>
         </md-card-content>
-        <md-card-footer>
+        <md-card-actions>
           <button md-button (click)="play(i)">Play</button>
           <button md-button>Copy</button>
-        </md-card-footer>
+        </md-card-actions>
       </md-card>
     </div>
   </div>

@@ -5,7 +5,7 @@ md-input-container label {
 
 md-card{
    overflow: hidden;
-   margin-bottom: 5px;
+   margin-bottom: 20px;
  }
 
  md-card image{
@@ -24,5 +24,10 @@ md-toolbar{
 [class*="col-"]{
     margin-bottom: -99999px;
     padding-bottom: 99999px;
-} 
+}
+
+img{
+  height:200px; 
+  width: 100%;
+}
 

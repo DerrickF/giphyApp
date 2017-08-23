@@ -8,13 +8,6 @@ import { trigger, state, animate, transition, style } from "@angular/animations"
   selector: 'app-search',
   templateUrl: './search.component.html',
   styleUrls: ['./search.component.css'],
-  animations: [
-    trigger('loading', [
-      state('shown', style({ opacity: 1 })),
-      state('hidden', style({ opacity: 0 })),
-      transition('* => *', animate('.5s'))
-    ])
-  ]
 })
 export class SearchComponent implements OnInit {
   search: string;
@@ -36,9 +29,7 @@ export class SearchComponent implements OnInit {
   }
 
   play(index: number) {
-
     this.giphys[index].active = !this.giphys[index].active
-    console.log('event', index);
   }
 
 
