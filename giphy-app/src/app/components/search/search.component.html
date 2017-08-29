@@ -1,43 +1,10 @@
 <div class="container-fluid">
   <md-toolbar>
-    <md-input-container style="width: 100%" floatPlaceholder="never">
+    <md-input-container floatPlaceholder="never">
       <input #search (keyup.enter)="searchGiphy(search.value)" color="warn" type="text" mdInput placeholder="Search">
       <i class="material-icons md-18" mdSuffix>mode_edit</i>
     </md-input-container>
   </md-toolbar>
-
-  <div style="width:100%">
-    <md-progress-bar *ngIf="loading" mode="query"></md-progress-bar>
-  </div>
-
-  <div class="row">
-    <div class="col-6 col-md-4" *ngFor="let giphy of giphys; let i = index">
-      <md-card>
-        <md-card-header>
-          <md-card-title> </md-card-title>
-        </md-card-header>
-        <div style="padding-bottom: 15px">
-          <img [hidden]="giphy.active" src="{{giphy.stillImageUrl}}">
-          <img [hidden]="!giphy.active" src="{{giphy.gifUrl}}">
-        </div>
-        <md-card-content>
-          <p>
-            <span><b>Created On: </b> {{giphy.creationDate | date:'shortDate'}}</span><br>
-            <span><b>Source: </b> {{giphy.source || "unknown"}}</span><br>
-            <span><b>Raiting: </b> {{giphy.rating | uppercase}}</span>
-          </p>
-        </md-card-content>
-        <md-card-actions>
-          <button md-button (click)="play(i)">Play</button>
-          <button md-button>Copy</button>
-        </md-card-actions>
-      </md-card>
-    </div>
-  </div>
-
-
-
+  <md-progress-bar *ngIf="loading" mode="query"></md-progress-bar>
+  <app-search-results [searchResults]="searchResults"></app-search-results>
 </div>
-
-
-<!-- <pre>{{giphys | json}}<pre> -->

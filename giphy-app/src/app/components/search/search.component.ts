@@ -11,7 +11,7 @@ import { trigger, state, animate, transition, style } from "@angular/animations"
 })
 export class SearchComponent implements OnInit {
   search: string;
-  giphys: SearchResult[] = [];
+  searchResults: SearchResult[] = [];
   loading: boolean = false;
 
   constructor(private giphyService: GiphyService) { }
@@ -22,15 +22,13 @@ export class SearchComponent implements OnInit {
     this.loading = true;
     setTimeout(() => {
       this.giphyService.search(value).subscribe(searchResults => {
-        this.giphys = searchResults;
+        this.searchResults = searchResults;
       });
       this.loading = false;
     }, 1000);
   }
 
-  play(index: number) {
-    this.giphys[index].active = !this.giphys[index].active
-  }
+
 
 
 }
