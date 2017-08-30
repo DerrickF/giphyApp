@@ -3,21 +3,19 @@ md-card{
    margin-bottom: 20px;
  }
 
- md-card image{
-   margin-top: 10px;
- }
-
- .row{
+.row{
     overflow: hidden; 
 }
 
-[class*="col-"]{
-    margin-bottom: -99999px;
-    padding-bottom: 99999px;
-}
-
 img{
-  height:200px; 
+  height:auto; 
   width: 100%;
 }
 
+.flex-fill-row{
+  flex: 1 1 auto;
+}
+
+.display-flex{
+  display: flex;
+}
