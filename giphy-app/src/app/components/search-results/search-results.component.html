@@ -10,7 +10,7 @@
           <button [hidden]="giphy.active" md-icon-button (click)="play(i)"><i class="material-icons">play_circle_outline</i></button>
           <button [hidden]="!giphy.active" md-icon-button (click)="play(i)"><i class="material-icons">pause_circle_outline</i></button>
           <span class="flex-fill-row"> </span>
-          <button md-icon-button (click)="play(i)"><i class="material-icons">fullscreen</i></button>
+          <a md-icon-button [routerLink]="['/search/detail', giphy.id]"><i class="material-icons">fullscreen</i></a>
         </div>
       </md-card-actions>
     </md-card>

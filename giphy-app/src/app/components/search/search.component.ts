@@ -16,7 +16,11 @@ export class SearchComponent implements OnInit {
 
   constructor(private giphyService: GiphyService) { }
 
-  ngOnInit() { }
+  ngOnInit() {
+    let results = this.giphyService.getSearchResults();
+    if (results)
+      this.searchResults = results;
+  }
 
   searchGiphy(value: string) {
     this.loading = true;

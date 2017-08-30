@@ -10,6 +10,7 @@ import { RouterModule } from "@angular/router";
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { SearchComponent } from './components/search/search.component';
 import { SearchResultsComponent } from './components/search-results/search-results.component';
+import { SearchResultsDetailComponent } from './components/search-results-detail/search-results-detail.component';
 import { GiphyService } from './shared/giphy.service';
 
 
@@ -19,6 +20,7 @@ import { GiphyService } from './shared/giphy.service';
     SearchComponent,
     SearchResultsComponent,
     DashboardComponent,
+    SearchResultsDetailComponent,
   ],
   imports: [
     BrowserModule,
@@ -35,6 +37,10 @@ import { GiphyService } from './shared/giphy.service';
       {
         path: 'dashboard',
         component: DashboardComponent
+      },
+      {
+        path: 'search/detail/:id',
+        component: SearchResultsDetailComponent
       },
     ])
   ],

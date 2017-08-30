@@ -1,4 +1,5 @@
 export class SearchResult {
+    id: string;
     rating: string;
     bitlyUrl: string;
     creationDate: string;

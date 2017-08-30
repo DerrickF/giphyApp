@@ -8,19 +8,19 @@ import { Observable } from "rxjs/Observable";
 @Injectable()
 export class GiphyService {
 
+  searchResults: SearchResult[] = [];
+
   constructor(private http: Http) { }
 
   public search(searchTerm: string): Observable<SearchResult[]> {
     let key = '&api_key=a9373807d61e4fd7ab4a7f023c0dba07';
     let limit = '&limit=8';
     let url = 'https://api.giphy.com/v1/gifs/search?q=' + searchTerm + limit + key;
-    let searchResults: SearchResult[] = [];
-
+    this.searchResults = [];
     return this.http.get(url).map(res => {
       res.json().data.forEach(giphy => {
-
         let result = new SearchResult;
-
+        //map all the things to other things
         result.bitlyUrl = giphy.bitly_url;
         result.creationDate = giphy.import_datetime;
         result.rating = giphy.rating;
@@ -28,12 +28,16 @@ export class GiphyService {
         result.gifUrl = giphy.images.original.url;
         result.active = false;
         result.source = giphy.source_tld;
+        result.id = giphy.id;
 
-        searchResults.push(result);
+        this.searchResults.push(result);
       });
-      return searchResults;
+      return this.searchResults;
     })
+  }
 
+  public getSearchResults(): SearchResult[] {
+    return this.searchResults;
   }
 
 }
