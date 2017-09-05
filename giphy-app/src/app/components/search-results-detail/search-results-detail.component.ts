@@ -26,4 +26,8 @@ export class SearchResultsDetailComponent implements OnInit {
     this.giphy = this.searchResults.find(x => x.id == this.id);
 
   }
+
+  play(){
+    this.giphyService.togglePlayPause(this.giphy);
+  }
 }

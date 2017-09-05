@@ -40,4 +40,9 @@ export class GiphyService {
     return this.searchResults;
   }
 
+public togglePlayPause(searchResult: SearchResult): SearchResult{
+    searchResult.active = !searchResult.active;
+    return searchResult;
+  }
+
 }

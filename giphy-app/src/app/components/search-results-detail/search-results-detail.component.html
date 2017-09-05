@@ -1,3 +1,22 @@
 <button [routerLink]="['/search']">back</button>
-
-<pre>{{giphy | json}}</pre>
+<div class="container">
+    <md-card>
+        <div>
+          <img [hidden]="giphy.active" src="{{giphy.stillImageUrl}}">
+          <img [hidden]="!giphy.active" src="{{giphy.gifUrl}}">
+        </div>
+        <md-card-content>
+            <p>
+                <span><b>Created On:</b> {{giphy.creationDate}}</span><br/>
+                <span><b>Rated: </b> {{giphy.rating}}</span><br/>
+                <span><b>Source:</b> {{giphy.source}}</span><br/>
+            </p>
+        </md-card-content>
+        <md-card-actions>
+          <div class="display-flex">
+            <button [hidden]="giphy.active" md-icon-button (click)="play()"><i class="material-icons">play_circle_outline</i></button>
+            <button [hidden]="!giphy.active" md-icon-button (click)="play()"><i class="material-icons">pause_circle_outline</i></button>
+          </div>
+        </md-card-actions>
+      </md-card>    
+</div>

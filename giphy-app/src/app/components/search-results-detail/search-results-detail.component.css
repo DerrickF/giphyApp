@@ -1,0 +1,17 @@
+img{
+    height:auto; 
+    width: 100%;
+}
+
+md-card{
+    overflow: hidden;
+    max-width: 600px;
+    margin: 0 auto;
+}
+md-card-content{
+    margin-top: 20px;
+}
+
+button icon{
+    font-size: 4em;
+}

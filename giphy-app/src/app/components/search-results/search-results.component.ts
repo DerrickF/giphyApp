@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { SearchResult } from "../../shared/search-result-model";
+import { GiphyService } from "../../shared/giphy.service";
 
 @Component({
   selector: 'app-search-results',
@@ -8,13 +9,15 @@ import { SearchResult } from "../../shared/search-result-model";
 })
 export class SearchResultsComponent implements OnInit {
 
-  constructor() { }
+  constructor(private giphyService: GiphyService) { }
   @Input() searchResults: SearchResult
   ngOnInit() {
   }
 
   play(index: number) {
-    this.searchResults[index].active = !this.searchResults[index].active
+    let giffToPlay = this.searchResults[index];
+    this.giphyService.togglePlayPause(giffToPlay);
+    //this.searchResults[index].active = !this.searchResults[index].active
   }
 
 }
