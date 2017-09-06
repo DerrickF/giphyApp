@@ -4,8 +4,10 @@
         <div class="image-container">
             <img [hidden]="giphy.active" src="{{giphy.stillImageUrl}}">
             <img [hidden]="!giphy.active" src="{{giphy.gifUrl}}">
-            <button color="primary" class="play-pause-button" [hidden]="giphy.active" md-icon-button (click)="play()"> <i style="font-size:150px" class="material-icons">play_circle_outline</i></button>
-            <button color="primary" class="play-pause-button" [hidden]="!giphy.active" md-icon-button (click)="play()"><i style="font-size:150px" class="material-icons">pause_circle_outline</i></button>
+            <button [@buttonFadeInAnimation]="stateName" color="primary" class="play-pause-button" [hidden]="giphy.active" md-icon-button
+                (click)="play()"> <i style="font-size:150px" class="material-icons">play_circle_outline</i></button>
+            <button [@buttonFadeInAnimation]="stateName" color="primary" class="play-pause-button" [hidden]="!giphy.active" md-icon-button
+                (click)="play()"><i style="font-size:150px" class="material-icons">pause_circle_outline</i></button>
         </div>
         <md-card-content>
             <p>
