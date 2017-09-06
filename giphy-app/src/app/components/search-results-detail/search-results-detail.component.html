@@ -2,12 +2,9 @@
 <div class="container" [@fadeInAnimation]>
     <md-card>
         <div class="image-container">
-            <img [hidden]="giphy.active" src="{{giphy.stillImageUrl}}">
-            <img [hidden]="!giphy.active" src="{{giphy.gifUrl}}">
-            <button [@buttonFadeInAnimation]="stateName" color="primary" class="play-pause-button" [hidden]="giphy.active" md-icon-button
-                (click)="play()"> <i style="font-size:150px" class="material-icons">play_circle_outline</i></button>
-            <button [@buttonFadeInAnimation]="stateName" color="primary" class="play-pause-button" [hidden]="!giphy.active" md-icon-button
-                (click)="play()"><i style="font-size:150px" class="material-icons">pause_circle_outline</i></button>
+            <img (click)="play()" [hidden]="giphy.active" src="{{giphy.stillImageUrl}}">
+            <img (click)="play()" [hidden]="!giphy.active" src="{{giphy.gifUrl}}">
+            <button (click)="play()" [@buttonFadeInAnimation]="stateName" color="primary" class="play-pause-button" md-icon-button><i style="font-size:150px" class="material-icons">play_circle_outline</i></button>
         </div>
         <md-card-content>
             <p>

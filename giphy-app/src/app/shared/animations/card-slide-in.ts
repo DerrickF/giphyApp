@@ -6,7 +6,7 @@ export const cardSlideInAnimation =
     trigger('cardSlideInAnimation', [
 
         // route 'enter' transition
-        transition('* => *', [
+        transition('void => *', [
 
             // css styles at start of transition
             query('md-card', style({ transform: 'translateX(-400%' })),

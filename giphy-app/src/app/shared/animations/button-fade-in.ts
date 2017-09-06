@@ -14,6 +14,5 @@ export const buttonFadeInAnimation =
         })),
         //set up animations between transitions so it does not just pop on and off
         //but rather, fade in and out.
-        transition('play => pause', animate('500ms ease-out')),
-        transition('pause => play', animate('500ms ease-out'))
+        transition('play <=> pause', animate('500ms ease-out')),
     ])

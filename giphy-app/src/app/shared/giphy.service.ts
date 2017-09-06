@@ -9,10 +9,13 @@ import { Observable } from "rxjs/Observable";
 export class GiphyService {
 
   searchResults: SearchResult[] = [];
+  searchTerm: string;
+  searchOffset: number = 0;
 
   constructor(private http: Http) { }
 
   public search(searchTerm: string): Observable<SearchResult[]> {
+    this.searchTerm = searchTerm;
     let key = '&api_key=a9373807d61e4fd7ab4a7f023c0dba07';
     let limit = '&limit=8';
     let url = 'https://api.giphy.com/v1/gifs/search?q=' + searchTerm + limit + key;
@@ -37,10 +40,12 @@ export class GiphyService {
   }
 
   public getSearchResults(): SearchResult[] {
+    console.log(this.searchResults);
     return this.searchResults;
+
   }
 
-public togglePlayPause(searchResult: SearchResult): SearchResult{
+  public togglePlayPause(searchResult: SearchResult): SearchResult {
     searchResult.active = !searchResult.active;
     return searchResult;
   }
