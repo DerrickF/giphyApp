@@ -1,6 +1,18 @@
 img{
+    display:block;
+    position: relative;
     height:auto; 
     width: 100%;
+}
+
+.image-container{
+    position: relative;
+}
+
+.play-pause-button{
+    position: absolute;    
+    left: 35%;
+    top: 45%;
 }
 
 md-card{
@@ -12,6 +24,6 @@ md-card-content{
     margin-top: 20px;
 }
 
-button icon{
-    font-size: 4em;
+back-button{
+    margin-left: 20px;
 }

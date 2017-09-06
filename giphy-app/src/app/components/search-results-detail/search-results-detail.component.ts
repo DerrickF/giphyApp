@@ -2,11 +2,14 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { GiphyService } from "../../shared/giphy.service";
 import { SearchResult } from "../../shared/search-result-model";
+import { fadeInAnimation } from '../../shared/animations/fade-in';
 
 @Component({
   selector: 'app-search-results-detail',
   templateUrl: './search-results-detail.component.html',
-  styleUrls: ['./search-results-detail.component.css']
+  styleUrls: ['./search-results-detail.component.css'],
+  animations: [fadeInAnimation],
+  host: { '[@fadeInAnimation]': '' }
 })
 export class SearchResultsDetailComponent implements OnInit {
   id: string;
@@ -27,7 +30,7 @@ export class SearchResultsDetailComponent implements OnInit {
 
   }
 
-  play(){
+  play() {
     this.giphyService.togglePlayPause(this.giphy);
   }
 }

@@ -1,9 +1,11 @@
-<button [routerLink]="['/search']">back</button>
-<div class="container">
+<button id="back-button" md-icon-button [routerLink]="['/search']"><i style="font-size:35px" class="material-icons">arrow_back</i></button>
+<div class="container" [@fadeInAnimation]>
     <md-card>
-        <div>
-          <img [hidden]="giphy.active" src="{{giphy.stillImageUrl}}">
-          <img [hidden]="!giphy.active" src="{{giphy.gifUrl}}">
+        <div class="image-container">
+            <img [hidden]="giphy.active" src="{{giphy.stillImageUrl}}">
+            <img [hidden]="!giphy.active" src="{{giphy.gifUrl}}">
+            <button color="primary" class="play-pause-button" [hidden]="giphy.active" md-icon-button (click)="play()"> <i style="font-size:150px" class="material-icons">play_circle_outline</i></button>
+            <button color="primary" class="play-pause-button" [hidden]="!giphy.active" md-icon-button (click)="play()"><i style="font-size:150px" class="material-icons">pause_circle_outline</i></button>
         </div>
         <md-card-content>
             <p>
@@ -12,11 +14,5 @@
                 <span><b>Source:</b> {{giphy.source}}</span><br/>
             </p>
         </md-card-content>
-        <md-card-actions>
-          <div class="display-flex">
-            <button [hidden]="giphy.active" md-icon-button (click)="play()"><i class="material-icons">play_circle_outline</i></button>
-            <button [hidden]="!giphy.active" md-icon-button (click)="play()"><i class="material-icons">pause_circle_outline</i></button>
-          </div>
-        </md-card-actions>
-      </md-card>    
+    </md-card>
 </div>

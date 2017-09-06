@@ -1,6 +1,7 @@
 md-card{
    overflow: hidden;
    margin-bottom: 20px;
+   max-width: 350px;
  }
 
 .row{
@@ -18,4 +19,8 @@ img{
 
 .display-flex{
   display: flex;
+}
+
+i{
+  font-size: 35px;
 }

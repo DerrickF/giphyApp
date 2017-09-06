@@ -1,18 +1,20 @@
-<div class="row">
-  <div class="col-6 col-md-4" *ngFor="let giphy of searchResults; let i = index">
-    <md-card>
-      <div>
-        <img [hidden]="giphy.active" src="{{giphy.stillImageUrl}}">
-        <img [hidden]="!giphy.active" src="{{giphy.gifUrl}}">
-      </div>
-      <md-card-actions>
-        <div class="display-flex">
-          <button [hidden]="giphy.active" md-icon-button (click)="play(i)"><i class="material-icons">play_circle_outline</i></button>
-          <button [hidden]="!giphy.active" md-icon-button (click)="play(i)"><i class="material-icons">pause_circle_outline</i></button>
-          <span class="flex-fill-row"> </span>
-          <a md-icon-button [routerLink]="['/search/detail', giphy.id]"><i class="material-icons">fullscreen</i></a>
+<div *ngIf="searchResults.length">
+  <div class="row" [@imageSlideIn]="searchResults.length">
+    <div class="col-6 col-md-3" *ngFor="let giphy of searchResults; let i = index">
+      <md-card>
+        <div>
+          <img [hidden]="giphy.active" src="{{giphy.stillImageUrl}}">
+          <img [hidden]="!giphy.active" src="{{giphy.gifUrl}}">
         </div>
-      </md-card-actions>
-    </md-card>
+        <md-card-actions>
+          <div class="display-flex">
+            <button [hidden]="giphy.active" md-icon-button (click)="play(i)"><i class="material-icons">play_circle_outline</i></button>
+            <button [hidden]="!giphy.active" md-icon-button (click)="play(i)"><i class="material-icons">pause_circle_outline</i></button>
+            <span class="flex-fill-row"> </span>
+            <a md-icon-button [routerLink]="['/search/detail', giphy.id]"><i class="material-icons">fullscreen</i></a>
+          </div>
+        </md-card-actions>
+      </md-card>
+    </div>
   </div>
 </div>
