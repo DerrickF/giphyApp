@@ -5,6 +5,7 @@ import {
   MdToolbarModule,
   MdCardModule,
   MdProgressBarModule,
+  MdSidenavModule
 
 } from '@angular/material';
 
@@ -17,7 +18,8 @@ import { NgModule } from '@angular/core';
     MdInputModule,
     MdToolbarModule,
     MdCardModule,
-    MdProgressBarModule
+    MdProgressBarModule,
+    MdSidenavModule
   ],
   exports: [
     MdButtonModule,
@@ -25,7 +27,8 @@ import { NgModule } from '@angular/core';
     MdInputModule,
     MdToolbarModule,
     MdCardModule,
-    MdProgressBarModule
+    MdProgressBarModule,
+    MdSidenavModule
   ],
 })
 export class MaterialModule { }

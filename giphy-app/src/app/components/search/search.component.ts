@@ -1,4 +1,4 @@
-import { Component, OnInit, OnChanges } from '@angular/core';
+import { Component, OnInit, OnChanges, ViewEncapsulation } from '@angular/core';
 import { FormControl, Validators } from "@angular/forms";
 import { GiphyService } from '../../shared/giphy.service';
 import { SearchResult } from "../../shared/search-result-model";

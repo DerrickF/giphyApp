@@ -13,7 +13,21 @@ md-progress-bar {
 }
 
 md-toolbar{
-    margin-top: 20px;
-    margin-bottom: 20px;
-  }
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
 
+.fab-wrapper{
+    position: absolute;
+    right: 20px;
+    bottom: 20px;
+}
+
+.side-nav{
+  background-color: lightgray;
+  width: 300px;
+}
+
+#advanced-options{
+  margin-top: 50%;
+}
