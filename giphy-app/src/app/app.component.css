@@ -1,3 +1,27 @@
 md-toolbar{
     margin-bottom: 30px;
 }
+
+.fab{
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+}
+
+.fab-wrapper{
+    height: auto;
+    width: 100%;
+}
+
+.sidenav-content {
+  display: flex;
+  height: 100%;
+}
+
+.side-nav{
+  padding: 20px;
+}
+
+md-sidenav-container{
+    height: 100vh;
+}

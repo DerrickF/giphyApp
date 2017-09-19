@@ -7,7 +7,6 @@ import { NgModule } from '@angular/core';
 import { MaterialModule } from './modules/material.module';
 import { RouterModule } from "@angular/router";
 
-import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { SearchComponent } from './components/search/search.component';
 import { SearchResultsComponent } from './components/search-results/search-results.component';
 import { SearchResultsDetailComponent } from './components/search-results-detail/search-results-detail.component';
@@ -19,7 +18,6 @@ import { GiphyService } from './shared/giphy.service';
     AppComponent,
     SearchComponent,
     SearchResultsComponent,
-    DashboardComponent,
     SearchResultsDetailComponent,
   ],
   imports: [
@@ -31,12 +29,9 @@ import { GiphyService } from './shared/giphy.service';
     //Routes
     RouterModule.forRoot([
       {
-        path: 'search',
-        component: SearchComponent
-      },
-      {
-        path: 'dashboard',
-        component: DashboardComponent
+        path: '',
+        component: SearchComponent,
+        pathMatch: 'full'
       },
       {
         path: 'search/detail/:id',

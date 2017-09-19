@@ -16,24 +16,3 @@ md-toolbar{
   margin-top: 20px;
   margin-bottom: 20px;
 }
-
-.fab-wrapper{    
-    position: absolute;
-    right: 20px;
-    bottom: 20px;
-}
-
-.sidenav-content {
-  display: flex;
-  height: 100%;
-  align-items: center;
-  justify-content: center;
-}
-
-.side-nav{
-  padding: 20px;
-}
-
-#advanced-options{
-  margin-top: 50%;
-}

@@ -1,4 +1,28 @@
-<md-toolbar color="primary">
-    <span><a class="navbar-brand" style="color:white;" [routerLink]="['/search']">Giphy(s)</a></span>
-</md-toolbar>
-<router-outlet></router-outlet>
+<md-sidenav-container>
+    <md-toolbar color="primary">
+        <span><a class="navbar-brand" style="color:white;" [routerLink]="['/search']">Giphy(s)</a></span>
+    </md-toolbar>
+    <md-sidenav class="side-nav" #sidenav mode="over">
+        <div class="sidenav-content">
+            <md-card>
+                <md-card-title>Advanced Options</md-card-title>
+                <md-card-subtitle>Number Of Search Results</md-card-subtitle>
+                <md-radio-group>
+                    <md-radio-button checked="true" value="bacon">
+                        10
+                    </md-radio-button>
+                    <md-radio-button value="ham">
+                        15
+                    </md-radio-button>
+                    <md-radio-button value="chicken" [checked]="isChecked">
+                        20
+                    </md-radio-button>
+                </md-radio-group>
+            </md-card>
+        </div>
+    </md-sidenav>
+    <router-outlet></router-outlet>
+</md-sidenav-container>
+<div class="fab">
+    <button md-fab (click)="sidenav.toggle()" color="primary"><i class="material-icons">settings</i></button>
+</div>

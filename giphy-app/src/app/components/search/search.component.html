@@ -1,38 +1,8 @@
-<md-sidenav-container>
-  <div class="container-fluid">
-    <md-toolbar>
-      <md-input-container floatPlaceholder="never">
-        <input #search (keyup.enter)="searchGiphy(search.value)" color="warn" type="text" mdInput placeholder="Search">
-        <i class="material-icons md-18" mdSuffix>mode_edit</i>
-      </md-input-container>
-    </md-toolbar>
-    
-    <md-progress-spinner color="primary" mode="indeterminate" *ngIf="loading"></md-progress-spinner>
-    
-    <app-search-results [searchResults]="searchResults"></app-search-results>
-    
-    
-    <md-sidenav class="side-nav" #sidenav mode="over">
-        <div class="sidenav-content">
-            <md-card>
-                <md-radio-group>
-                  <md-radio-button value="bacon">
-                    Bacon
-                  </md-radio-button>
-                  <md-radio-button value="ham">
-                    Ham
-                  </md-radio-button>
-                  <md-radio-button value="chicken" [checked]="isChecked">
-                    Chicken
-                  </md-radio-button>
-                </md-radio-group>
-              </md-card>
-        </div>
-      </md-sidenav>
-    
-    
-  </div>
-</md-sidenav-container>
-<div class="fab-wrapper">
-  <button md-fab (click)="sidenav.toggle()" color="primary"><i class="material-icons">settings</i></button>
-</div>
+<md-toolbar>
+  <md-input-container floatPlaceholder="never">
+    <input #search (keyup.enter)="searchGiphy(search.value)" color="warn" type="text" mdInput placeholder="Search">
+    <i class="material-icons md-18" mdSuffix>mode_edit</i>
+  </md-input-container>
+</md-toolbar>
+<md-progress-spinner color="primary" mode="indeterminate" *ngIf="loading"></md-progress-spinner>
+<app-search-results [searchResults]="searchResults"></app-search-results>
