@@ -7,7 +7,7 @@ md-input-container label {
   color: white;
 }
 
-md-progress-bar {
+md-progress-spinner {
  margin-top: 20%;
   width:100%;
 }
@@ -17,15 +17,21 @@ md-toolbar{
   margin-bottom: 20px;
 }
 
-.fab-wrapper{
+.fab-wrapper{    
     position: absolute;
     right: 20px;
     bottom: 20px;
 }
 
+.sidenav-content {
+  display: flex;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+}
+
 .side-nav{
-  background-color: lightgray;
-  width: 300px;
+  padding: 20px;
 }
 
 #advanced-options{

@@ -5,7 +5,9 @@ import {
   MdToolbarModule,
   MdCardModule,
   MdProgressBarModule,
-  MdSidenavModule
+  MdSidenavModule,
+  MdProgressSpinnerModule,
+  MdRadioModule
 
 } from '@angular/material';
 
@@ -18,8 +20,9 @@ import { NgModule } from '@angular/core';
     MdInputModule,
     MdToolbarModule,
     MdCardModule,
-    MdProgressBarModule,
-    MdSidenavModule
+    MdSidenavModule,
+    MdProgressSpinnerModule,
+    MdRadioModule
   ],
   exports: [
     MdButtonModule,
@@ -27,8 +30,9 @@ import { NgModule } from '@angular/core';
     MdInputModule,
     MdToolbarModule,
     MdCardModule,
-    MdProgressBarModule,
-    MdSidenavModule
+    MdSidenavModule,
+    MdProgressSpinnerModule,
+    MdRadioModule
   ],
 })
 export class MaterialModule { }

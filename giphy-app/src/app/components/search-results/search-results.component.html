@@ -1,6 +1,6 @@
 <div *ngIf="searchResults.length">
   <div class="row" [@cardSlideInAnimation]="searchResults.length">
-    <div class="col-6 col-md-3" *ngFor="let giphy of searchResults; let i = index">
+    <div class="col-12 col-sm-6 col-md-4 " *ngFor="let giphy of searchResults; let i = index">
       <md-card>
         <div>
           <img [hidden]="giphy.active" src="{{giphy.stillImageUrl}}">
