@@ -3,6 +3,7 @@ import { Http, Response } from '@angular/http';
 import 'rxjs/add/operator/map';
 import { SearchResult } from "./search-result-model";
 import { Observable } from "rxjs/Observable";
+import { AppStore } from './app-store';
 
 
 @Injectable()
@@ -11,13 +12,20 @@ export class GiphyService {
   searchResults: SearchResult[] = [];
   searchTerm: string;
   searchOffset: number = 0;
+  searchLimit: number;
 
-  constructor(private http: Http) { }
+  constructor(private http: Http, private store: AppStore) { }
 
   public search(searchTerm: string): Observable<SearchResult[]> {
     this.searchTerm = searchTerm;
     let key = '&api_key=a9373807d61e4fd7ab4a7f023c0dba07';
-    let limit = '&limit=8';
+
+    this.store.changes
+      .map(store => store.numberOfResults)
+      .subscribe(number => this.searchLimit = number);
+
+    let limit = '&limit=' + this.searchLimit.toString();
+
     let url = 'https://api.giphy.com/v1/gifs/search?q=' + searchTerm + limit + key;
     this.searchResults = [];
     return this.http.get(url).map(res => {

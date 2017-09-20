@@ -1,0 +1,8 @@
+.sidenav-content {
+  display: flex;
+  height: 100%;
+}
+
+.side-nav{
+  padding: 20px;
+}
