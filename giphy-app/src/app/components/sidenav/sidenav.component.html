@@ -1,19 +1,20 @@
 <div class="sidenav-content">
-
   <md-card>
     <md-card-title>Advanced Options</md-card-title>
-    <md-card-subtitle>Number Of Search Results</md-card-subtitle>
-    <md-radio-group [(ngModel)]="limit" (ngModelChange)="setLimit()">
-      <md-radio-button name="limit" checked="true" value=10>
-        10
-      </md-radio-button>
-      <md-radio-button name="limit" value=20>
-        20
-      </md-radio-button>
-      <md-radio-button name="limit" value=30>
-        30
-      </md-radio-button>
-    </md-radio-group>
+    <md-card>
+      <md-card-subtitle>Number Of Search Results</md-card-subtitle>
+      <md-radio-group [(ngModel)]="limit" (ngModelChange)="setLimit()">
+        <md-radio-button [value]=10> 10 </md-radio-button>
+        <md-radio-button [value]=20> 20 </md-radio-button>
+        <md-radio-button [value]=30> 30 </md-radio-button>
+      </md-radio-group>
+    </md-card>
+    <md-card>
+      <md-card-subtitle>Auto Play</md-card-subtitle>
+      <md-slide-toggle>
+        Auto Play
+      </md-slide-toggle>
+    </md-card>
   </md-card>
 
 </div>

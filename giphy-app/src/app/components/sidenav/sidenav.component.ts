@@ -12,7 +12,7 @@ import { BrowserModule } from '@angular/platform-browser';
   styleUrls: ['./sidenav.component.css']
 })
 export class SidenavComponent implements OnInit {
-  limit: number;
+  public limit: number = 10;
 
 
   constructor(private store: AppStore) { }
@@ -23,6 +23,7 @@ export class SidenavComponent implements OnInit {
 
   setLimit() {
     let numberOfResults = this.limit;
+    console.log('checked: ', this.limit);
     const currentState = this.store.getState();
     this.store.setState(Object.assign({}, currentState, { numberOfResults }))
   }

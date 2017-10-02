@@ -20,7 +20,6 @@ export class AppStore {
   }
 
   setState(state: State) {
-    console.log('stateNumber ', state.numberOfResults);
     this.store.next(state);
   }
 
