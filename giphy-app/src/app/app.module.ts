@@ -8,14 +8,13 @@ import { MaterialModule } from './modules/material.module';
 import { RouterModule } from "@angular/router";
 import { FormsModule } from '@angular/forms';
 
-
 import { SearchComponent } from './components/search/search.component';
 import { SearchResultsComponent } from './components/search-results/search-results.component';
 import { SearchResultsDetailComponent } from './components/search-results-detail/search-results-detail.component';
 import { GiphyService } from './shared/giphy.service';
-import { AppStore } from './shared/app-store';
 import { SidenavComponent } from './components/sidenav/sidenav.component';
-
+import { StoreModule } from '@ngrx/store';
+import { searchLimitReducer } from '../app/components/search/searchLimitReducer'
 
 @NgModule({
   declarations: [
@@ -26,12 +25,13 @@ import { SidenavComponent } from './components/sidenav/sidenav.component';
     SidenavComponent,
   ],
   imports: [
+    BrowserAnimationsModule,
     BrowserModule,
+    MaterialModule,
     CommonModule,
     HttpModule,
     FormsModule,
-    BrowserAnimationsModule,
-    MaterialModule,
+    StoreModule.forRoot({ searchLimit: searchLimitReducer }),
     //Routes
     RouterModule.forRoot([
       {
@@ -45,7 +45,7 @@ import { SidenavComponent } from './components/sidenav/sidenav.component';
       },
     ])
   ],
-  providers: [GiphyService, AppStore],
+  providers: [GiphyService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

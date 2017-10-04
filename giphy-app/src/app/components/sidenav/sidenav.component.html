@@ -1,19 +1,21 @@
 <div class="sidenav-content">
   <md-card>
-    <md-card-title>Advanced Options</md-card-title>
+    <md-card-title>Search Options</md-card-title>
     <md-card>
       <md-card-subtitle>Number Of Search Results</md-card-subtitle>
-      <md-radio-group [(ngModel)]="limit" (ngModelChange)="setLimit()">
-        <md-radio-button [value]=10> 10 </md-radio-button>
-        <md-radio-button [value]=20> 20 </md-radio-button>
-        <md-radio-button [value]=30> 30 </md-radio-button>
-      </md-radio-group>
+      <md-slider max="30" step="1" thumbLabel="true" [value]="sliderValue" (change)="update($event)"></md-slider>
+      <md-card-actions>
+        <button md-icon-button (click)="decrement()"><i class="material-icons">chevron_left</i></button>
+        <button md-icon-button (click)="increment()"><i class="material-icons">chevron_right</i></button>
+        <button md-icon-button (click)="reset()"><i class="material-icons">clear</i></button>
+      </md-card-actions>
     </md-card>
     <md-card>
       <md-card-subtitle>Auto Play</md-card-subtitle>
       <md-slide-toggle>
         Auto Play
       </md-slide-toggle>
+
     </md-card>
   </md-card>
 
