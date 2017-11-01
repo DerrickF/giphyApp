@@ -20,11 +20,9 @@ export class SideNavEffects {
     constructor(private actions: Actions) { }
 
     @Effect()
-    // getSearchResults: Observable<Action> = this.actions.ofType(sideNavActions.TOGGLE)
-    //     .map((action: sideNavActions.ToggleAutoPlay) => {
-    //         return { type: searchActions.TOGGLE_PLAY_ALL, payload: !action.payload }
-    //     });
+    //when calling to change the toogle value in the side nav
     getSearchResults: Observable<Action> = this.actions.ofType<sideNavActions.ToggleAutoPlay>(sideNavActions.TOGGLE)
+        //also update the search results to match the same value
         .map(action => new searchActions.TogglePlayAll(action.payload))
 
 }
