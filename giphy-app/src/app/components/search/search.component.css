@@ -1,18 +1,18 @@
-md-input-container{
+mat-input-container{
   width:100%;
 }
 
 /* When the input is not focused */
-md-input-container label {
+mat-input-container label {
   color: white;
 }
 
-md-progress-spinner {
+mat-progress-spinner {
  margin-top: 20%;
   width:100%;
 }
 
-md-toolbar{
+mat-toolbar{
   margin-top: 20px;
   margin-bottom: 20px;
 }

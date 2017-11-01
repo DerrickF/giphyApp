@@ -1,43 +1,43 @@
-import {
-  MdButtonModule,
-  MdCheckboxModule,
-  MdInputModule,
-  MdToolbarModule,
-  MdCardModule,
-  MdProgressBarModule,
-  MdSidenavModule,
-  MdProgressSpinnerModule,
-  MdRadioModule,
-  MdSlideToggleModule,
-  MatSliderModule
+import { NgModule } from '@angular/core';
 
+import {
+  MatButtonModule,
+  MatCheckboxModule,
+  MatInputModule,
+  MatToolbarModule,
+  MatCardModule,
+  MatProgressBarModule,
+  MatSidenavModule,
+  MatProgressSpinnerModule,
+  MatRadioModule,
+  MatSlideToggleModule,
+  MatSliderModule
 } from '@angular/material';
 
-import { NgModule } from '@angular/core';
 
 @NgModule({
   imports: [
-    MdButtonModule,
-    MdCheckboxModule,
-    MdInputModule,
-    MdToolbarModule,
-    MdCardModule,
-    MdSidenavModule,
-    MdProgressSpinnerModule,
-    MdRadioModule,
-    MdSlideToggleModule,
+    MatButtonModule,
+    MatCheckboxModule,
+    MatInputModule,
+    MatToolbarModule,
+    MatCardModule,
+    MatSidenavModule,
+    MatProgressSpinnerModule,
+    MatRadioModule,
+    MatSlideToggleModule,
     MatSliderModule
   ],
   exports: [
-    MdButtonModule,
-    MdCheckboxModule,
-    MdInputModule,
-    MdToolbarModule,
-    MdCardModule,
-    MdSidenavModule,
-    MdProgressSpinnerModule,
-    MdRadioModule,
-    MdSlideToggleModule,
+    MatButtonModule,
+    MatCheckboxModule,
+    MatInputModule,
+    MatToolbarModule,
+    MatCardModule,
+    MatSidenavModule,
+    MatProgressSpinnerModule,
+    MatRadioModule,
+    MatSlideToggleModule,
     MatSliderModule
   ],
 })

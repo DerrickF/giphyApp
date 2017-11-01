@@ -1,51 +1,48 @@
 import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { MdSidenav } from '@angular/material';
+import { MatSidenav } from '@angular/material';
 import { BrowserModule } from '@angular/platform-browser';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs/Observable';
-import { INCREMENT, DECREMENT, RESET, SET } from '../search/searchLimitReducer';
 import { AppState } from '../../shared/appState'
-
+import { SideNav } from './sidenav.model';
+import * as SideNavActions from './sidenav.actions';
 
 @Component({
   selector: 'app-sidenav',
   templateUrl: './sidenav.component.html',
   styleUrls: ['./sidenav.component.css']
 })
+
 export class SidenavComponent implements OnInit {
-  public limit: Observable<number>;
-  public sliderValue: number;
+  sliderValue: number;
+  sideNav: Observable<SideNav>;
 
   constructor(private store: Store<AppState>) {
-    this.limit = store.select('searchLimit');
+    this.sideNav = this.store.select('sideNav');
   }
 
   ngOnInit() {
-    this.limit.subscribe(value => {
-      this.sliderValue = value;
-    })
+
   }
 
-  update($event) {
-    this.store.dispatch({ type: SET, payload: { value: $event.value } })
+  toggle(value: boolean) {
+    this.store.dispatch(new SideNavActions.ToggleAutoPlay(value));
   }
 
   increment() {
-    this.store.dispatch({ type: INCREMENT });
+    this.store.dispatch(new SideNavActions.Increment());
   }
 
   decrement() {
-    this.store.dispatch({ type: DECREMENT });
+    this.store.dispatch(new SideNavActions.Decrement());
   }
 
   reset() {
-    this.store.dispatch({ type: RESET });
+    this.store.dispatch(new SideNavActions.Reset());
   }
 
-
-
-
-
-
+  setValue(value: number) {
+    this.store.dispatch(new SideNavActions.SetValue(value));
+  }
 }

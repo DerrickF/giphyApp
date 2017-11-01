@@ -9,8 +9,8 @@ export const cardSlideInAnimation =
         transition('void => *', [
 
             // css styles at start of transition
-            query('md-card', style({ transform: 'translateX(-400%' })),
-            query('md-card',
+            query('mat-card', style({ transform: 'translateX(-400%' })),
+            query('mat-card',
                 stagger('100ms', [
                     animate('100ms', style({ transform: 'translateX(0)' }))
                 ])),

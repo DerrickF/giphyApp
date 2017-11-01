@@ -1,6 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { SearchResult } from "../../shared/search-result-model";
-import { GiphyService } from "../../shared/giphy.service";
+import { Component, Input } from '@angular/core';
 import { cardSlideInAnimation } from "../../shared/animations/card-slide-in";
 
 @Component({
@@ -9,16 +7,9 @@ import { cardSlideInAnimation } from "../../shared/animations/card-slide-in";
   styleUrls: ['./search-results.component.css'],
   animations: [cardSlideInAnimation],
 })
-export class SearchResultsComponent implements OnInit {
+export class SearchResultsComponent {
 
-  constructor(private giphyService: GiphyService) { }
-  @Input() searchResults: SearchResult[]
-  ngOnInit() {
-  }
+  @Input() searchResults: any[];
 
-  play(index: number) {
-    let giffToPlay = this.searchResults[index];
-    this.giphyService.togglePlayPause(giffToPlay);
-  }
 
 }

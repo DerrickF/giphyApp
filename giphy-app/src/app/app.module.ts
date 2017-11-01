@@ -7,14 +7,18 @@ import { NgModule } from '@angular/core';
 import { MaterialModule } from './modules/material.module';
 import { RouterModule } from "@angular/router";
 import { FormsModule } from '@angular/forms';
+import { EffectsModule } from '@ngrx/effects';
 
 import { SearchComponent } from './components/search/search.component';
 import { SearchResultsComponent } from './components/search-results/search-results.component';
 import { SearchResultsDetailComponent } from './components/search-results-detail/search-results-detail.component';
-import { GiphyService } from './shared/giphy.service';
 import { SidenavComponent } from './components/sidenav/sidenav.component';
 import { StoreModule } from '@ngrx/store';
-import { searchLimitReducer } from '../app/components/search/searchLimitReducer'
+import { sideNavReducer } from './components/sidenav/sidenav.reducer';
+import { searchReducer } from './components/search/search.reducer'
+import { SearchEffects } from './components/search/search.effects'
+import { SearchService } from './components/search/search.service';
+import { SideNavEffects } from './components/sidenav/sidenav.effects';
 
 @NgModule({
   declarations: [
@@ -31,7 +35,11 @@ import { searchLimitReducer } from '../app/components/search/searchLimitReducer'
     CommonModule,
     HttpModule,
     FormsModule,
-    StoreModule.forRoot({ searchLimit: searchLimitReducer }),
+    EffectsModule.forRoot([SideNavEffects, SearchEffects]),
+    StoreModule.forRoot({
+      sideNav: sideNavReducer,
+      search: searchReducer
+    }),
     //Routes
     RouterModule.forRoot([
       {
@@ -45,7 +53,7 @@ import { searchLimitReducer } from '../app/components/search/searchLimitReducer'
       },
     ])
   ],
-  providers: [GiphyService],
+  providers: [SearchService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

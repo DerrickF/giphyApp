@@ -1,17 +1,29 @@
-<button id="back-button" md-icon-button [routerLink]="['/']"><i style="font-size:35px" class="material-icons">arrow_back</i></button>
+<button id="back-button" mat-icon-button [routerLink]="['/']">
+    <i style="font-size:35px" class="material-icons">arrow_back</i>
+</button>
+
 <div class="container" [@fadeInAnimation]>
-    <md-card>
+    <mat-card *ngIf="(search | async)?.searchResults[id] as giphy">
         <div class="image-container">
-            <img (click)="play()" [hidden]="giphy.active" src="{{giphy.stillImageUrl}}">
-            <img (click)="play()" [hidden]="!giphy.active" src="{{giphy.gifUrl}}">
-            <button (click)="play()" [@buttonFadeInAnimation]="stateName" color="primary" class="play-pause-button" md-icon-button><i style="font-size:150px" class="material-icons">play_circle_outline</i></button>
+            <img [hidden]="!giphy.active" src="{{giphy.images.original_still.url}}">
+            <img [hidden]="giphy.active" src="{{giphy.images.original.url}}">
+            <button (click)="giphy.active = !giphy.active" [@buttonFadeInAnimation]="giphy.active" color="primary" class="play-pause-button"
+                mat-icon-button>
+                <i style="font-size:150px" class="material-icons">play_circle_outline</i>
+            </button>
         </div>
-        <md-card-content>
+        <mat-card-content>
             <p>
-                <span><b>Created On:</b> {{giphy.creationDate}}</span><br/>
-                <span><b>Rated: </b> {{giphy.rating}}</span><br/>
-                <span><b>Source:</b> {{giphy.source}}</span><br/>
+                <span>
+                    <b>Created On:</b> {{giphy.creationDate}}</span>
+                <br/>
+                <span>
+                    <b>Rated: </b> {{giphy.rating}}</span>
+                <br/>
+                <span>
+                    <b>Source:</b> {{giphy.source}}</span>
+                <br/>
             </p>
-        </md-card-content>
-    </md-card>
+        </mat-card-content>
+    </mat-card>
 </div>

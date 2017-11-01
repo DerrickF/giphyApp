@@ -1,10 +1,10 @@
-<div class="container">
-  <md-toolbar>
-    <md-input-container floatPlaceholder="never">
-      <input #search (keyup.enter)="searchGiphy(search.value)" color="warn" type="text" mdInput placeholder="Search">
-      <i class="material-icons md-18" mdSuffix>mode_edit</i>
-    </md-input-container>
-  </md-toolbar>
-  <md-progress-spinner color="primary" mode="indeterminate" *ngIf="loading"></md-progress-spinner>
-  <app-search-results [searchResults]="searchResults"></app-search-results>
+<div class="container" *ngIf="search | async as search">
+  <mat-toolbar>
+    <mat-input-container floatPlaceholder="never">
+      <input [(ngModel)]="searchTerm" (keyup.enter)="setSearchValue(searchTerm)" color="warn" type="text" matInput placeholder="{{search.searchTerm || 'search'}}">
+      <i class="material-icons mat-18" matSuffix>mode_edit</i>
+    </mat-input-container>
+  </mat-toolbar>
+  <mat-progress-spinner color="primary" mode="indeterminate" *ngIf="loading"></mat-progress-spinner>
+  <app-search-results [searchResults]="search.searchResults"></app-search-results>
 </div>

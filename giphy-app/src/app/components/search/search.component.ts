@@ -1,34 +1,40 @@
 import { Component, OnInit, OnChanges, ViewEncapsulation } from '@angular/core';
 import { FormControl, Validators } from "@angular/forms";
-import { GiphyService } from '../../shared/giphy.service';
-import { SearchResult } from "../../shared/search-result-model";
 import { trigger, state, animate, transition, style } from "@angular/animations";
+import { Search } from './search.model';
+import { Store } from '@ngrx/store';
+import { AppState } from '../../shared/appState';
+import * as SearchActions from './search.actions';
+import { Observable } from 'rxjs/Observable';
 
 @Component({
   selector: 'app-search',
   templateUrl: './search.component.html',
   styleUrls: ['./search.component.css'],
 })
+
 export class SearchComponent implements OnInit {
-  search: string;
-  searchResults: SearchResult[] = [];
+  searchTerm: string;
+  searchResults: any[] = [];
   loading: boolean = false;
 
-  constructor(private giphyService: GiphyService) { }
+  search: Observable<Search>;
+
+  constructor(private store: Store<AppState>) {
+    this.search = this.store.select('search');
+  }
 
   ngOnInit() {
-    let results = this.giphyService.getSearchResults();
-    if (results)
-      this.searchResults = results;
+
   }
 
-  searchGiphy(value: string) {
-    this.loading = true;
-    setTimeout(() => {
-      this.giphyService.search(value).subscribe(searchResults => {
-        this.searchResults = searchResults;
-      });
-      this.loading = false;
-    }, 1000);
+  setSearchValue(value: string) {
+    this.store.dispatch(new SearchActions.SetValue(value));
+    this.getSearchResults(value);
   }
+
+  getSearchResults(value: string) {
+    this.store.dispatch(new SearchActions.GetSearchResults(value));
+  }
+
 }

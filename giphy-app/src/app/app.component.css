@@ -1,4 +1,4 @@
-md-toolbar{
+mat-toolbar{
     margin-bottom: 30px;
 }
 
@@ -14,6 +14,6 @@ md-toolbar{
 }
 
 
-md-sidenav-container{
+mat-sidenav-container{
     height: 100vh;
 }

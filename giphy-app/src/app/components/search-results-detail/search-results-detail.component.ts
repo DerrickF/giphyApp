@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { GiphyService } from "../../shared/giphy.service";
-import { SearchResult } from "../../shared/search-result-model";
 import { fadeInAnimation } from '../../shared/animations/fade-in';
 import { buttonFadeInAnimation } from '../../shared/animations/button-fade-in';
+import { AppState } from '../../shared/appState';
+import { Search } from '../search/search.model';
+import { Store } from '@ngrx/store';
+import { Observable } from 'rxjs/Observable';
 
 @Component({
   selector: 'app-search-results-detail',
@@ -12,28 +14,18 @@ import { buttonFadeInAnimation } from '../../shared/animations/button-fade-in';
   animations: [fadeInAnimation, buttonFadeInAnimation],
   host: { '[@fadeInAnimation]': '' }
 })
+
 export class SearchResultsDetailComponent implements OnInit {
   id: string;
-  searchResults: SearchResult[];
-  private sub: any;
-  giphy: SearchResult;
+  search: Observable<Search>;
 
-
-  constructor(private route: ActivatedRoute, private giphyService: GiphyService) { }
+  constructor(private route: ActivatedRoute, private store: Store<AppState>) {
+    this.search = this.store.select('search');
+  }
 
   ngOnInit() {
-    this.sub = this.route.params.subscribe(params => {
+    this.route.params.subscribe(params => {
       this.id = params['id'];
-    })
-    this.searchResults = this.giphyService.getSearchResults();
-    this.giphy = this.searchResults.find(x => x.id == this.id);
-  }
-
-  get stateName() {
-    return this.giphy.active ? 'play' : 'pause';
-  }
-
-  play() {
-    this.giphyService.togglePlayPause(this.giphy);
+    });
   }
 }

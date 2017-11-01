@@ -1,22 +1,30 @@
 <div class="sidenav-content">
-  <md-card>
-    <md-card-title>Search Options</md-card-title>
-    <md-card>
-      <md-card-subtitle>Number Of Search Results</md-card-subtitle>
-      <md-slider max="30" step="1" thumbLabel="true" [value]="sliderValue" (change)="update($event)"></md-slider>
-      <md-card-actions>
-        <button md-icon-button (click)="decrement()"><i class="material-icons">chevron_left</i></button>
-        <button md-icon-button (click)="increment()"><i class="material-icons">chevron_right</i></button>
-        <button md-icon-button (click)="reset()"><i class="material-icons">clear</i></button>
-      </md-card-actions>
-    </md-card>
-    <md-card>
-      <md-card-subtitle>Auto Play</md-card-subtitle>
-      <md-slide-toggle>
-        Auto Play
-      </md-slide-toggle>
+  <div *ngIf="sideNav | async as sideNav">
+    <mat-card>
+      <mat-card-title>Search Options</mat-card-title>
+      <mat-card>
+        <mat-card-subtitle>Number Of Search Results</mat-card-subtitle>
+        <mat-slider max="30" step="1" thumbLabel="true" [(ngModel)]="sideNav.searchLimit" (click)="setValue(sideNav.searchLimit)"></mat-slider>
+        <mat-card-actions>
+          <button mat-icon-button (click)="decrement()">
+            <i class="material-icons">chevron_left</i>
+          </button>
+          <button mat-icon-button (click)="increment()">
+            <i class="material-icons">chevron_right</i>
+          </button>
+          <button mat-icon-button (click)="reset()">
+            <i class="material-icons">clear</i>
+          </button>
+        </mat-card-actions>
+      </mat-card>
+      <mat-card>
+        <mat-card-subtitle>Auto Play</mat-card-subtitle>
+        <mat-slide-toggle (ngModelChange)="toggle($event)" [ngModel]="sideNav.autoPlay">
+          Auto Play
+        </mat-slide-toggle>
+      </mat-card>
+    </mat-card>
+  </div>
 
-    </md-card>
-  </md-card>
 
 </div>

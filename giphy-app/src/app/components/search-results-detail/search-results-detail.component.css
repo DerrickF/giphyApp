@@ -15,12 +15,12 @@ img{
     top: 45%;
 }
 
-md-card{
+mat-card{
     overflow: hidden;
     max-width: 600px;
     margin: 0 auto;
 }
-md-card-content{
+mat-card-content{
     margin-top: 20px;
 }
 
